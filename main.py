@@ -1,15 +1,16 @@
 from io import BytesIO
 from flask import Flask, render_template, send_file
 from flask_bootstrap import Bootstrap
-
-
+from dotenv import load_dotenv
+import os
 from form_classes import *
 
+load_dotenv()
 UPLOAD_FOLDER = r'static/files/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.getenv('CONFIG_KEY')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 Bootstrap(app)
 
