@@ -1,0 +1,56 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Mithras Cabolet{% endblock %}
+
+{% block content %}
+<h1>Mithras Cabolet</h1>
+
+{% for project1, project2 in projects|batch(2, false)  %}
+    {% if project2[0] is defined %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">
+                        <p class="large"> {{ project1[0] }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project2[0]) }}');">
+                      <p class="large"> {{ project2[0] }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 justify-content-center align-items-center">
+                  <div class="card1">
+                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">
+                        <p class="large"> {{ project1[0] }}</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
