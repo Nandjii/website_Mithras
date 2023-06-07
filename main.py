@@ -64,7 +64,7 @@ def image_route(ident):
 @app.route("/")
 def home():
     projects_data = fetch_projects()
-
+    print(app.config['SECRET_KEY'])
     return render_template("index.html", projects=projects_data)
 
 
