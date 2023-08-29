@@ -18,10 +18,10 @@ def allowed_file(filename, extentions):
 
 def fetch_projects():
     try:
-        db = sqlite3.connect("portfolio.db", check_same_thread=False)
+        db = sqlite3.connect("portofolio.db", check_same_thread=False)
         cursor = db.cursor()
-        cursor.execute("SELECT project_name, date, functie, categorie, discription, photo "
-                       "FROM portfolio")
+        cursor.execute("SELECT project_name, date, functie, categorie, discription, photo, link "
+                       "FROM portofolio")
         project_list = cursor.fetchall()
         cursor.close()
         return project_list
@@ -30,10 +30,10 @@ def fetch_projects():
 
 
 def validate_no_dubble(field):
-    db = sqlite3.connect("portfolio.db", check_same_thread=False)
+    db = sqlite3.connect("portofolio.db", check_same_thread=False)
     cursor = db.cursor()
     cursor.execute("SELECT project_name "
-                   "FROM portfolio")
+                   "FROM portofolio")
     project_list = cursor.fetchone()
     cursor.close()
 
@@ -56,6 +56,7 @@ class AddForm(FlaskForm):
     categorie = StringField(label="what kind of project was it?", validators=[DataRequired()])
     discription = StringField(label="Descipe the project?", validators=[DataRequired()])
     photo = FileField(label="Upload photo", validators=[FileRequired()])
+    link = StringField(label="imdb link")
     submit_project = SubmitField("Add project")
 
 

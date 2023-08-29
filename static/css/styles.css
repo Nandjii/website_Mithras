@@ -12,7 +12,7 @@
 	 margin: 0;
 	 padding: 0;
 	 height: 100vh;
-	 background-color: #ecf0f9;
+	 background-color: #000;
 	 background-attachment: fixed;
 }
 .large {
@@ -34,6 +34,46 @@
 	 overflow: hidden;
 	 text-overflow: ellipsis;
 }
+
+.top-bar {
+    position: relative;
+    align-items: center; /* Vertically centers content */
+    justify-content: flex-start;
+    width: 100%;
+    height: 40%;
+    padding: 5px;
+    border: 3px solid;
+    background: #000;
+    background-image: url("/image/cover.jpg");
+    background-size: cover; /* Adjust how the image covers the div */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Position the image at the center of the div */
+
+}
+
+.top-bar-text {
+    background-color: rgba(0,0,0, 0.35); !important
+    color: #000;
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    transform: translateY( 10%, -50%);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.top-bar-info {
+    color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 10px;
+}
+
+.cover {
+    height: 25%;
+}
+
  .heading {
 	 width: 100%;
 	 margin-left: 1rem;
@@ -76,17 +116,127 @@
 
 }
 
+.text {
+    color: white;
+    font-family: Monique Script;
+}
+
+#title {
+    font: 60px Monique Script;
+    margin: 5px;
+}
+
+#functions {
+    margin: 0;
+}
+
+#intro {
+    left: 30%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.item {
+    margin: 0;
+    padding: 5px;
+}
+
+.intro_container {
+    margin-top: 40px;
+    margin-left: 30%;
+    width: 40%;
+    height: 100hv;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lower_info {
+    margin: 0;
+}
+
+.lowest {
+    margin-top: 40px;
+    text-align: center;
+    max-width: 40%;
+    position: absolute;
+    left: 40%;
+}
+
+.block {
+    padding-top: 142%; /* 4/3 aspect ratio (4 / 3 * 100) */
+    position: relative;
+    background-color: #ccc;
+    overflow: hidden;
+}
+
+.content {
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.content a {
+    background: #000;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.column {
+  display: grid;
+  background: #000;
+
+}
+
+
+
+a {
+    background: #000;
+    text-decoration: none;
+    cursor: pointer;
+    display: block; /* Display as a block-level element */
+    width: 100%; /* Take the full width of the column */
+}
+
+a img  {
+    background: #000;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+
+}
+
+img {
+    background: #000;
+}
+
 .row {
+    width: 100%;
     display: absolute;
     align-items: center;
     justify-content: center;
+
 
 }
 
 .col-md-6 {
     margin: 1%;
-    width: 48%;
-    height: 48%;
+    max-width: 25%%;
+    height: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,14 +244,8 @@
 }
 
 .col-6 d-flex justify-content-center align-items-center {
-    margin: 1%;
-    width: 48%;
-    height: 48%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: calc(3/4 * 100%);
+    max-width: 100%; /* Prevent images from exceeding their original size */
+    height: auto;
 }
 
  .card1 {
@@ -268,4 +412,9 @@
 
 .container {
     padding: 0px 0px 0px 0px
+}
+
+.align-middle {
+  vertical-align: middle !important;
+  height: 25%;
 }

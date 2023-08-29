@@ -14,43 +14,120 @@
 {% block title %}Mithras Cabolet{% endblock %}
 
 {% block content %}
-<h1>Mithras Cabolet</h1>
 
-{% for project1, project2 in projects|batch(2, false)  %}
-    {% if project2[0] is defined %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                  <div class="card">
-                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">
-                        <p class="large"> {{ project1[0] }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="card">
-                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project2[0]) }}');">
-                      <p class="large"> {{ project2[0] }}</p>
-                    </div>
-                  </div>
-                </div>
+<div class="top-bar">
+    <div class="top-bar-text">
+        <h1 class="text" id="title">MPC-Sound</h1>
+        <h3 class="text" id="functions">Sounddesign | Setgeluid | Soundapparatuur</h3>
+        <h4 class="text">Mithrascabolet@gmail.com</h4>
+        <h4 class="text">+31614981954</h4>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="column" style="grid-template-columns: repeat(6, 1fr);">
+    {% for project in projects %}
+        <div class="block">
+            <div class="content">
+                <a href="{{ project[-1] }}">
+                    <img src="{{ url_for('image_route', ident=project[0]) }}" alt="">
+                </a>
             </div>
         </div>
-    {% else %}
-        <div class="container">
-            <div class="row">
+    {% endfor %}
+    </div>
+</div>
 
-                <div class="col-md-6 justify-content-center align-items-center">
-                  <div class="card1">
-                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">
-                        <p class="large"> {{ project1[0] }}</p>
-                    </div>
-                  </div>
-                </div>
+<div class="intro_container">
+    <article class="text" id="intro">
+        <h1 class="item">Explore the Sonic Realms with MPC-Sound – Where Audio Dreams Come True</h1>
+        <p class="item">
+            At MPC-Sound, we are dedicated to shaping captivating auditory worlds that transport audiences into
+            immersive sonic dimensions. With an unwavering passion for sound and a meticulous attention to detail,
+            we're committed to enhancing your projects, whether they're films, games, animations, or any medium that
+            demands an extraordinary auditory touch.
+        </p >
+        <h3 class="item">Defining Sonic Excellence</h3>
+        <p class="item">
+            Each project we embark upon receives a distinct touch that exemplifies our dedication to unmatched
+            quality. With an acute understanding of sound's emotive impact, we meticulously layer soundscapes,
+            effects, and music that seamlessly blend with your narrative. From the gentlest whispers to the
+            mightiest crescendos, every sound we create adds depth and richness to the storytelling experience.
+        </p>
+        <h3 class="item">Years of Expertise</h3>
+        <p class="item">
+            Boasting extensive experience within the industry, we've refined our skills to curate audio that not only
+            seamlessly integrates into your project but also elevates its entire essence. Our expertise spans diverse
+            genres, styles, and emotions, allowing us to cater to a wide array of creative visions.
+        </p>
+        <h3 class="item">Crafting Together</h3>
+        <p class="item">
+            We firmly believe that sound design thrives in collaboration. Working closely with our clients, we delve
+            into their aspirations, capturing their unique perspectives and infusing them into each sonic element.
+            Your project's triumph is our shared success, and we're here to offer guidance and mastery while ensuring
+            your distinct creative identity remains intact.
+        </p>
+        <h3 class="item">Leading in Innovation</h3>
+        <p class="item">
+            Equipped with cutting-edge technology and industry-preferred software, we constantly push the boundaries of
+            sound design. Our commitment to staying at the forefront of advancements guarantees that your project
+            benefits from the most innovative techniques and tools available.
+        </p>
+        <h3 class="item">Let's Shape Soundscapes Together</h3>
+        <p class="item">
+            Whether you're a filmmaker seeking to evoke emotions through audio, a game developer aiming to transport
+            players into new realms, or a content creator in search of the perfect sonic signature, MPC-Sound is here
+            to materialize your vision. Let's unite to craft auditory experiences that resonate deeply.
+        </p>
+        <p class="item">
+            Discover a universe of limitless soundscapes. Reach out to us today, and together, let's embark on an
+            extraordinary sonic journey that's bound to leave a lasting impact.
+        </p>
+    </article>
+</div>
 
-            </div>
-        </div>
-    {% endif %}
-{% endfor %}
+<div class="lowest">
+    <h2 class="text" id="lower_info">MPC-sound</h2>
+    <h3 class="text" id="lower_info">mithrascabolet@gmail.com</h3>
+    <h3 class="text" id="lower_info">+31624386634</h3>
+    <h5 class="text">Ⓒ 2018- 2023 MPC-sound</h5>
+</div>
+
+<!--{% for project1, project2 in projects|batch(2, false)  %}-->
+<!--    {% if project2[0] is defined %}-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-6">-->
+<!--                  <div class="card">-->
+<!--                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">-->
+<!--                        <p class="large"> {{ project1[0] }}</p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-6">-->
+<!--                  <div class="card">-->
+<!--                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project2[0]) }}');">-->
+<!--                      <p class="large"> {{ project2[0] }}</p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% else %}-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+
+<!--                <div class="col-md-6 justify-content-center align-items-center">-->
+<!--                  <div class="card1">-->
+<!--                    <div class="front" style="background-image: url('{{ url_for('image_route', ident=project1[0]) }}');">-->
+<!--                        <p class="large"> {{ project1[0] }}</p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endif %}-->
+<!--{% endfor %}-->
 
 {% endblock %}

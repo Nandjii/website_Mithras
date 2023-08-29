@@ -15,14 +15,15 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 Bootstrap(app)
 
 
-CREATE_TABLE_SYNX = "CREATE TABLE portfolio(project_name, " \
+CREATE_TABLE_SYNX = "CREATE TABLE portofolio(project_name, " \
                                             "date, " \
                                             "functie, " \
                                             "categorie, " \
                                             "discription, " \
-                                            "photo BLOB NOT NULL)"
+                                            "photo BLOB NOT NULL," \
+                                            "imbd link)"
 try:
-    db = sqlite3.connect("portfolio.db")
+    db = sqlite3.connect("portofolio.db")
     cursor = db.cursor()
     cursor.execute(CREATE_TABLE_SYNX)
     db.commit()
@@ -33,9 +34,9 @@ except sqlite3.OperationalError:
 
 def fetch_projects():
     try:
-        db = sqlite3.connect("portfolio.db", check_same_thread=False)
+        db = sqlite3.connect("portofolio.db", check_same_thread=False)
         cursor = db.cursor()
-        cursor.execute("SELECT * From portfolio")
+        cursor.execute("SELECT * From portofolio")
         project_list = cursor.fetchall()
         cursor.close()
         return project_list
@@ -50,44 +51,77 @@ def write_to_file(data, filename):
         file.write(data)
 
 
+def calculate_rows():
+    database = fetch_projects()
+    num_projects = len(database)
+
+    remainder_4 = num_projects % 4
+    remainder_5 = num_projects % 5
+    remainder_6 = num_projects % 6
+
+    remainder_dict = {
+        4: remainder_4,
+        5: remainder_5,
+        6: remainder_6
+      }
+
+    if remainder_4 == 0:
+        return 4
+    elif remainder_5 == 0:
+        return 5
+    elif remainder_6 == 0:
+        return 6
+    else:
+        best_num_columns = max(remainder_dict, key=remainder_dict.get)
+        return best_num_columns
+
+
+
 @app.route("/image/<string:ident>")
 def image_route(ident):
-    db = sqlite3.connect("portfolio.db", check_same_thread=False)
+    db = sqlite3.connect("portofolio.db", check_same_thread=False)
     cursor = db.cursor()
-    cursor.execute("SELECT photo From portfolio WHERE project_name = ?", (ident,))
+    cursor.execute("SELECT photo From portofolio WHERE project_name = ?", (ident,))
     result = cursor.fetchone()
+
     blob_data = result[-1]
     bytes_io = BytesIO(bytes(blob_data))
     return send_file(bytes_io, mimetype='image/png')
 
 
+@app.route("/image/cover.jpg")
+def image_cover():
+    img_file = "cover.jpg"
+    return send_file(img_file)
+
 @app.route("/")
 def home():
     projects_data = fetch_projects()
-    print(app.config['SECRET_KEY'])
-    return render_template("index.html", projects=projects_data)
+
+    num_colums = calculate_rows()
+    return render_template("index.html", projects=projects_data, num_colums=num_colums)
 
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
     add_form = AddForm()
     if add_form.validate_on_submit():
-        # functie van maken
         file = add_form.photo.data.read()
-        project_name = add_form.project_name.data
 
+        project_name = add_form.project_name.data
         date = add_form.date.data
         functie = add_form.functie.data
         categorie = add_form.categorie.data
         discription = add_form.discription.data
         photo = sqlite3.Binary(file)
+        link = add_form.link.data
 
         if not validate_no_dubble(add_form.project_name):
-            project_data = (project_name, date, functie, categorie, discription, photo)
+            project_data = (project_name, date, functie, categorie, discription, photo, link)
 
-            db = sqlite3.connect("portfolio.db", check_same_thread=False)
+            db = sqlite3.connect("portofolio.db", check_same_thread=False)
             cursor = db.cursor()
-            cursor.execute("INSERT INTO portfolio VALUES (?, ?, ?, ?, ?, ?)", project_data)
+            cursor.execute("INSERT INTO portofolio VALUES (?, ?, ?, ?, ?, ?, ?)", project_data)
             db.commit()
 
         return "File has been uploaded"

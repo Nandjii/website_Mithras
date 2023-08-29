@@ -14,7 +14,7 @@
 {% block content %}
 <form action="{{ url_for('add') }}" method="post" enctype="multipart/form-data">
 {{ form.csrf_token }}
-  <div class="content">
+  <div class="container">
     <p>
       {{ form.project_name.label }} <br> {{ form.project_name(size=30) }}
         <br>
@@ -25,6 +25,8 @@
       {{ form.categorie.label }} <br> {{ form.categorie(size=30) }}
         <br>
       {{ form.discription.label }} <br> {{ form.discription(size=30) }}
+        <br>
+      {{ form.link.label }} <br> {{ form.link(size=30) }}
         <br>
       {{ form.photo.label }} <br> {{ form.photo(size=30) }}
         <br>
