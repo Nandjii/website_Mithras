@@ -70,8 +70,8 @@
 
 .top-bar-title {
     transform: translateY(40%);
-     font-size: clamp(10px, 2vw, 100px);
-     margin: 0;
+    font-size: clamp(10px, 2vw, 100px);
+    margin: 0;
 
 }
 
@@ -81,7 +81,11 @@
     margin: 0;
 }
 
-
+.top-bar-contact {
+    transform: translateY(80%);
+    font-size: clamp(5px, 1vw, 50px);
+    margin: 0;
+}
 /* Top Bar Info with Responsive Behavior */
 .top-bar-info {
     color: #fff;
