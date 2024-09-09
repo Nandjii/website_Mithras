@@ -137,5 +137,4 @@ def add():
 
 
 if __name__ == "__main__":
-    print(calculate_rows())
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5002)
