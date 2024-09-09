@@ -63,8 +63,8 @@
     transform: translateY(-50%); /* Center the text vertically */
     padding-left: 10px;
     padding-right: 10px;
-    width: clamp(15px, 25vw, 50vw);
-    aspect-ratio: 5 / 1;
+    width: clamp(15px, 30vw, 50vw);
+    aspect-ratio: 4.5 / 1;
 
 }
 
