@@ -64,7 +64,7 @@ def calculate_rows():
         5: remainder_5,
         6: remainder_6
       }
-
+    print(remainder_dict)
     if remainder_4 == 0:
         return 4
     elif remainder_5 == 0:
@@ -72,7 +72,8 @@ def calculate_rows():
     elif remainder_6 == 0:
         return 6
     else:
-        best_num_columns = max(remainder_dict, key=remainder_dict.get)
+        best_num_columns = min(remainder_dict, key=remainder_dict.get)
+        print(best_num_columns)
         return best_num_columns
 
 
@@ -96,10 +97,16 @@ def image_cover():
 
 @app.route("/")
 def home():
-    projects_data = fetch_projects()
-
+    num_rows = 2
     num_colums = calculate_rows()
-    return render_template("index.html", projects=projects_data, num_colums=num_colums)
+    projects = fetch_projects()
+
+    row_1 = fetch_projects()[:num_colums]
+    row_2 = fetch_projects()[num_colums:-1]
+    projects_data = [row_1, row_2]
+    return render_template("index.html", projects=projects_data,
+                                         num_comumns=num_colums,
+                                         num_rows=num_rows)
 
 
 @app.route("/add", methods=["GET", "POST"])
@@ -130,4 +137,4 @@ def add():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5002)
