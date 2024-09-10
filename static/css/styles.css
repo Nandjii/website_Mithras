@@ -12,10 +12,15 @@
 	 margin: 0;
 	 padding: 0;
 	 height: 100vh;
-	 background-color: #000;
+	 background-color: #18130d;
 	 background-attachment: fixed;
 
 }
+
+a img {
+	text-decoration: none;
+	border: 0 none;
+	}
 
 .large {
      font-size: 3rem;
@@ -35,6 +40,7 @@
 	 width: 100%;
 	 overflow: hidden;
 	 text-overflow: ellipsis;
+
 }
 
 /* Responsive Top Bar */
@@ -65,23 +71,28 @@
     padding-right: 10px;
     width: clamp(15px, 30vw, 50vw);
     aspect-ratio: 4.5 / 1;
+    color: #ffebc8;
 
 }
 
 .top-bar-title {
     transform: translateY(40%);
-     font-size: clamp(10px, 2vw, 100px);
-     margin: 0;
+    font-size: clamp(10px, 2vw, 100px);
+    margin: 0;
 
 }
 
 .top-bar-service {
     transform: translateY(65%);
-    font-size: clamp(5px, 1vw, 50px);
+    font-size: clamp(3px, 1vw, 50px);
     margin: 0;
 }
 
-
+.top-bar-contact {
+    transform: translateY(80%);
+    font-size: clamp(3px, 1vw, 50px);
+    margin: 0;
+}
 /* Top Bar Info with Responsive Behavior */
 .top-bar-info {
     color: #fff;
@@ -133,61 +144,32 @@
 	 margin-left: 1rem;
 	 margin-bottom: 3rem;
 }
-.card {
-    color: inherit;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: -100px; /* Start outside of the left side of the screen */
-    width: 100px;
-    height: 50px;
-    background-color: lightblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    transform: translateY(-50%); /* Vertically center */
-    animation: moveCard 5s linear infinite;
-}
+
 
 
 
 .text {
-    color: white;
-    font-family: Monique Script;
+    color: black;
+    font-family: Calibri;
+    front-weight: bold;
 }
 
-#title {
-    font: 60px Monique Script;
-    margin: 5px;
-}
-
-#functions {
-    margin: 0;
-}
-
-#intro {
-    left: 30%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
-
-.item {
-    margin: 0;
-    padding: 5px;
+.text-intro {
+    color: #ffebc8;
 }
 
 .intro_container {
     margin-top: 40px;
-    margin-left: 30%;
-    width: 40%;
+    margin-left: 20%;
+    width: 60%;
     height: 100hv;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.intro_container p{
+    font-weight: bold;
 }
 
 .contact_info {
@@ -199,14 +181,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #ffebc8;
+
+
 }
 
 .item_info {
     margin: 0;
-}
-
-#lower_info {
-    margin: 0;
+    outline: 0; /* Remove default browser outline */
+    text-decoration: none; /* Optional: Remove underline */
+    border: 0;
 }
 
 .lowest {
@@ -215,41 +199,6 @@
     justify-content: center;
     align-items: center;
 }
-
-
-
-.column-illusion {
-
-    display: grid;
-    background: #000;
-    position: 150%
-
-}
-
-
-
-@keyframes moveBlocks {
-    0% {
-        transform: translateX(0); /* Start in the visible viewport */
-    }
-    100% {
-        transform: translateX(-100vw); /* Move completely out of view */
-    }
-}
-
-/* Keyframes to make the card scroll and reappear */
-
-@keyframes scrollCard {
-    0% {
-        transform: translateX(0vw); /* Start off-screen to the right */
-    }
-    100% {
-        transform: translateX(-100%); /* Move to the left off-screen */
-    }
-}
-
-
-
 
 
 .content {
@@ -266,18 +215,7 @@
 
 }
 
-.content-illusion {
-    background: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+
 
 .content a {
     background: #000;
@@ -300,20 +238,18 @@ a {
     cursor: pointer;
     display: block; /* Display as a block-level element */
     width: 100%; /* Take the full width of the column */
+
 }
 
 a img  {
     background: #000;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: auto:
     object-fit: contain;
     display: block;
 
 }
 
-img {
-    background: #000;
-}
 
 .row {
     width: 100%;
@@ -323,197 +259,6 @@ img {
 
 
 }
-
-.col-md-6 {
-    margin: 1%;
-    max-width: 25%%;
-    height: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: calc(3/4 * 100%);
-}
-
-.col-6 d-flex justify-content-center align-items-center {
-    max-width: 100%; /* Prevent images from exceeding their original size */
-    height: auto;
-}
-
- .card1 {
-	color: inherit;
-	cursor: pointer;
-    position: absolute-center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin; 0px;
-	position: relative;
-    transform: translateX(50%);
-	align-items: center;
-    justify-content: center;
-    padding-bottom: calc(4/3 * 100%);
-    -webkit-animation: linear infinite;
-    -webkit-animation-name: run;
-    -webkit-animation-duration: 5s;
-}
-
-
- @media screen and (max-width: 800px) {
-	 .card {
-		 width: calc(50% - 3rem);
-	}
-}
- @media screen and (max-width: 500px) {
-	 .card {
-		 width: 100%;
-
-	}
-}
- .front, .back {
-	 display: flex;
-	 border-radius: 6px;
-	 background-position: center;
-	 background-size: cover;
-	 text-align: center;
-	 justify-content: center;
-	 align-items: center;
-	 position: absolute;
-	 height: 100%;
-	 width: 100%;
-	 -webkit-backface-visibility: hidden;
-	 backface-visibility: hidden;
-	 transform-style: preserve-3d;
-	 transition: ease-in-out 600ms;
-}
- .front {
-	 background-size: cover;
-	 padding: 2rem;
-	 font-size: 1.618rem;
-	 font-weight: 600;
-	 color: #fff;
-	 overflow: hidden;
-	 font-family: Poppins, sans-serif;
-
-}
- .front:before {
-	 position: absolute;
-	 display: block;
-	 content: '';
-	 top: 0;
-	 left: 0;
-	 right: 0;
-	 bottom: 0;
-	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
-	 opacity: 0.25;
-	 z-index: -1;
-}
- .card:hover .front {
-	 transform: rotateY(180deg);
-}
- .card:nth-child(even):hover .front {
-	 transform: rotateY(-180deg);
-}
- .back {
-	 background: #fff;
-	 transform: rotateY(-180deg);
-	 padding: 0 2em;
-}
- .card:hover .back {
-	 transform: rotateY(0deg);
-}
- .card:nth-child(even) .back {
-	 transform: rotateY(180deg);
-}
- .card:nth-child(even):hover .back {
-	 transform: rotateY(0deg);
-}
- .button {
-	 transform: translateZ(40px);
-	 cursor: pointer;
-	 -webkit-backface-visibility: hidden;
-	 backface-visibility: hidden;
-	 font-weight: bold;
-	 color: #fff;
-	 padding: 0.5em 1em;
-	 border-radius: 100px;
-	 font: inherit;
-	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
-	 border: none;
-	 position: relative;
-	 transform-style: preserve-3d;
-	 transition: 300ms ease;
-}
- .button:before {
-	 transition: 300ms ease;
-	 position: absolute;
-	 display: block;
-	 content: '';
-	 transform: translateZ(-40px);
-	 -webkit-backface-visibility: hidden;
-	 backface-visibility: hidden;
-	 height: calc(100% - 20px);
-	 width: calc(100% - 20px);
-	 border-radius: 100px;
-	 left: 10px;
-	 top: 16px;
-	 box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
-	 background-color: rgba(26, 87, 230, 0.25);
-}
-
-.button.delete-button {
-	 background-color: rgba(230, 87, 230, 0.25);
-	 background: linear-gradient(135deg, #e61a46, #e61a1a);
-}
-.button.delete-button:before {
-	 background-color: rgba(230, 87, 230, 0.25);
-	 box-shadow: 0 0 10px 10px rgba(230, 87, 230, 0.25);
-}
- .button:hover {
-	 transform: translateZ(55px);
-}
- .button:hover:before {
-	 transform: translateZ(-55px);
-}
- .button:active {
-	 transform: translateZ(20px);
-}
- .button:active:before {
-	 transform: translateZ(-20px);
-	 top: 12px;
-	 top: 12px;
-}
-.container.add {
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-.rating {
-    color: #E4BB23;
-}
-.review {
-    font-style: italic;
-}
- .movie_gens {
-	 font-size: 11.5px;
-}
-
- .release_date {
-	 font-weight: normal;
-}
-
-.container {
-    padding: 0px 0px 0px 0px
-}
-
-.align-middle {
-  vertical-align: middle !important;
-  height: 25%;
-}
-
-
-
-/* General styles */
-
 
 /* Container for scrolling blocks */
 .grid-container {
@@ -533,23 +278,9 @@ img {
 }
 
 /* Each block that will scroll */
-.block-1 {
-    width: 20vw; /* Width relative to viewport width */
-    height: calc(20vw * 1.40); /* 4:3 ratio, height is 75% of the width */
-    background-color: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    color: black;
-    position: relative;
-    padding-top: 0;
-}
-
-
 .block-0 {
     width: 20vw; /* Width relative to viewport width */
-    height: calc(20vw * 1.40); /* 4:3 ratio, height is 75% of the width */
+    aspect-ratio: 2/2.80;
     background-color: lightblue;
     display: flex;
     justify-content: center;
@@ -560,12 +291,18 @@ img {
     padding-top: 0;
 }
 
-/* Ensures images fit well within blocks */
-.block img {
-    max-width: 100%;
-    height: auto;
+.block-1 {
+    width: 20vw; /* Width relative to viewport width */
+    aspect-ratio: 2/2.80;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: black;
+    position: relative;
+    padding-top: 0;
 }
-
 
 
 /* Keyframes for scrolling effect */
@@ -593,11 +330,18 @@ img {
 }
 
 .column.column-1 {
-    animation: scroll-backward 240s linear infinite;
+    animation: scroll-backward 180s linear infinite;
 }
 
-
-
-.column.column-2 {
-    animation: scroll-forward 120s linear infinite;
+.item_info a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Optional: Makes the link color inherit from its parent */
+    background: none;
+    box-shadow: none;
+    border: none;
 }
+
+.item_info a:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
