@@ -12,10 +12,15 @@
 	 margin: 0;
 	 padding: 0;
 	 height: 100vh;
-	 background-color: #000;
+	 background-color: #18130d;
 	 background-attachment: fixed;
 
 }
+
+a img {
+	text-decoration: none;
+	border: 0 none;
+	}
 
 .large {
      font-size: 3rem;
@@ -35,6 +40,7 @@
 	 width: 100%;
 	 overflow: hidden;
 	 text-overflow: ellipsis;
+
 }
 
 /* Responsive Top Bar */
@@ -65,6 +71,7 @@
     padding-right: 10px;
     width: clamp(15px, 30vw, 50vw);
     aspect-ratio: 4.5 / 1;
+    color: #ffebc8;
 
 }
 
@@ -142,8 +149,13 @@
 
 
 .text {
-    color: white;
+    color: black;
     font-family: Calibri;
+    front-weight: bold;
+}
+
+.text-intro {
+    color: #ffebc8;
 }
 
 .intro_container {
@@ -156,6 +168,10 @@
     align-items: center;
 }
 
+.intro_container p{
+    font-weight: bold;
+}
+
 .contact_info {
     margin-top: 15px;
     margin-left: 30%;
@@ -165,10 +181,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #ffebc8;
+
+
 }
 
 .item_info {
     margin: 0;
+    outline: 0; /* Remove default browser outline */
+    text-decoration: none; /* Optional: Remove underline */
+    border: 0;
 }
 
 .lowest {
@@ -310,3 +332,16 @@ a img  {
 .column.column-1 {
     animation: scroll-backward 180s linear infinite;
 }
+
+.item_info a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Optional: Makes the link color inherit from its parent */
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.item_info a:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
