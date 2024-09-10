@@ -60,14 +60,11 @@ def calculate_rows():
     remainder_6 = num_projects % 6
 
     remainder_dict = {
-        4: remainder_4,
         5: remainder_5,
         6: remainder_6
       }
     print(remainder_dict)
-    if remainder_4 == 0:
-        return 4
-    elif remainder_5 == 0:
+    if remainder_5 == 0:
         return 5
     elif remainder_6 == 0:
         return 6
@@ -102,7 +99,8 @@ def home():
     projects = fetch_projects()
 
     row_1 = fetch_projects()[:num_colums]
-    row_2 = fetch_projects()[num_colums:-1]
+    row_2 = fetch_projects()[num_colums:]
+    print(len(row_1), len(row_2))
     projects_data = [row_1, row_2]
     return render_template("index.html", projects=projects_data,
                                          num_comumns=num_colums,
@@ -137,4 +135,5 @@ def add():
 
 
 if __name__ == "__main__":
+    print(calculate_rows())
     app.run(host="0.0.0.0", port=5002)
